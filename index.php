@@ -1,7 +1,30 @@
 <?php
-require_once 'includes/db.php';
+// Include the database connection file
+include 'includes/db.php';
 
+// Define the getEvents function to fetch events from the database
+function getEvents() {
+    global $pdo; // Access the database connection object
+
+    try {
+        // Prepare and execute a SQL query to fetch events
+        $stmt = $pdo->prepare("SELECT * FROM events");
+        $stmt->execute();
+
+        // Fetch all rows from the result set as an associative array
+        $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $events; // Return the fetched events
+    } catch(PDOException $e) {
+        // Handle any database errors
+        die("Error: " . $e->getMessage());
+    }
+}
+
+// Call the getEvents function to fetch events
 $events = getEvents();
+
+// Now you can use the $events array to display events on your webpage
 ?>
 
 <!DOCTYPE html>
@@ -9,50 +32,26 @@ $events = getEvents();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's Chill</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Events</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Let's Chill</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Login</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
-    <section id="hero">
-        <div class="container">
-            <h2>Welcome to Let's Chill</h2>
-            <p>Find and book tickets for your favorite events!</p>
-        </div>
-    </section>
 
-    <section id="events">
-        <div class="container">
-            <h2>Upcoming Events</h2>
-            <?php foreach ($events as $event): ?>
-                <div class="event">
-                    <h3><?php echo $event['Name']; ?></h3>
-                    <p>Date: <?php echo $event['Date']; ?></p>
-                    <p>Type: <?php echo $event['Type']; ?></p>
-                    <p>Description: <?php echo $event['Description']; ?></p>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </section>
+<h1>Events</h1>
 
-    <footer>
-        <div class="container">
-            <p>&copy; <?php echo date('Y'); ?> Let's Chill</p>
-        </div>
-    </footer>
+<?php
+// Check if there are any events to display
+if ($events) {
+    // Loop through each event and display its details
+    foreach ($events as $event) {
+        echo "<h2>" . $event['event_name'] . "</h2>";
+        echo "<p>Date: " . $event['event_date'] . "</p>";
+        echo "<p>Description: " . $event['event_description'] . "</p>";
+        // Add more details as needed
+    }
+} else {
+    echo "<p>No events found.</p>";
+}
+?>
+
 </body>
 </html>

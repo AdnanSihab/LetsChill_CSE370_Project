@@ -82,7 +82,7 @@ foreign key (concert_id) references concert(Concert_id)
 Create table role_table(
 Job varchar(50) not null,
 role_id int not null auto_increment,
-primary key (role_id)
+primary key (concert_id)
 );
 
 Create table performs_in(
