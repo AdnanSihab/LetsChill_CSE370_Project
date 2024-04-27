@@ -83,15 +83,14 @@ CREATE TABLE `tbl_registration` (
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `phone` varchar(11) NOT NULL,
-  `age` int(2) NOT NULL,
-  `gender` varchar(10) NOT NULL,
   `totalAmount` decimal(8,2) NOT NULL,
   `lastUpdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-INSERT INTO `tbl_registration` (`user_id`, `name`, `email`, `phone`, `age`, `gender`, `totalAmount`, `lastUpdate`) VALUES
-(28, 'ts', 'ts@hotmail.com', '6940000000', 12, 'Male', '1600.00', '2018-06-25 16:34:13');
+
+INSERT INTO `tbl_registration` (`user_id`, `name`, `email`, `phone`, `totalAmount`, `lastUpdate`) VALUES
+(28, 'ts', 'ts@hotmail.com', '01862606826', '1600.00', '2018-06-25 16:34:13');
 
 
 CREATE TABLE `tbl_screens` (
@@ -161,6 +160,19 @@ INSERT INTO `tbl_stadium` (`id`, `name`, `address`, `place`, `state`) VALUES
 (3, 'OAKA', 'Amarousiou', 'Marousi', 'Athens'),
 (4, 'Panathenaic stadium', 'Kifisias', 'Kallimarmaron', 'Athens'),
 (14, 'Karaiskakis stadium', 'Lewforo Falirou', 'Neon Faliro', 'Piraeus');
+
+
+CREATE TABLE admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL
+);
+
+INSERT INTO admins (name, email, password, phone) VALUES
+('Adnan Al Sayeed Sihab', 'sihab2075@gmail.com', 'asdfghjkl', '1234567890');
+
 
 
 ALTER TABLE `tbl_login`

@@ -89,15 +89,16 @@ class formBuilder
                     $expression='/^[a-zA-Z ]+$/';
                     $err_msg="The $label can only consist of alphabets";
                     break;
-                case "age":
-                    $expression='/^(0?[0-9]?[0-9]|1[01][0-1]|11[0-1])$/';
-                    $err_msg="Enter a valid $label";
-                    break;
+                // case "age":
+                //     $expression='/^(0?[0-9]?[0-9]|1[01][0-1]|11[0-1])$/';
+                //     $err_msg="Enter a valid $label";
+                //     break;
                 case "mobile":
-                    $expression='/^[6]{1}[9]{1}[0-9]{8}$/';
+                    $expression='/^[0-9]{10,11}$/';
                     $err_msg="Enter a valid $label";
                     break;
                     // '/^[0-9]{10,11}$/'
+                    // '/^[6]{1}[9]{1}[0-9]{8}$/'
                     //https://stackoverflow.com/questions/45094533/php-regex-for-greek-mobile-phone-with-prefix-69
                 case "phone":
                     $expression='/^[0-9]\d{2,4}-\d{6,8}$/';

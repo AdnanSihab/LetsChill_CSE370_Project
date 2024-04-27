@@ -60,20 +60,7 @@
                                 <?php $frm->validate("name", array("required", "label" => "Name", "regexp" => "name")); ?>
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                             </div>
-                            <div class="form-group has-feedback">
-                                <input name="age" type="text" size="25" placeholder="Age" class="form-control" />
-                                <?php $frm->validate("age", array("required", "label" => "Age", "regexp" => "age")); ?>
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <select name="gender" class="form-control">
-                                    <option value>Select Gender</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
-                                <?php $frm->validate("gender", array("required", "label" => "Gender")); ?>
-                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                            </div>
+
                             <div class="form-group has-feedback">
                                 <input name="phone" type="text" size="25" placeholder="Mobile Number" class="form-control" />
                                 <?php $frm->validate("phone", array("required", "label" => "Mobile Number", "regexp" => "mobile")); ?>
@@ -98,7 +85,7 @@
                                 <button type="submit" class="btn btn-primary btn-block">Register</button>
                             </div>
                             <div class="text-center">
-                                <a href="admin/login.php" class="btn btn-secondary">Login as Admin</a>
+                                <a href="admin_login.php" class="btn btn-secondary">Login as Admin</a>
                             </div>
                         </form>
                     </div>
@@ -114,3 +101,20 @@
 <script>
     <?php $frm->applyvalidations("form1"); ?>
 </script>
+
+
+
+<!-- <div class="form-group has-feedback">
+                                <input name="age" type="text" size="25" placeholder="Age" class="form-control" />
+                                <?php $frm->validate("age", array("required", "label" => "Age", "regexp" => "age")); ?>
+                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <select name="gender" class="form-control">
+                                    <option value>Select Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                                <?php $frm->validate("gender", array("required", "label" => "Gender")); ?>
+                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                            </div> -->
