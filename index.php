@@ -1,57 +1,53 @@
 <?php
-// Include the database connection file
-include 'includes/db.php';
-
-// Define the getEvents function to fetch events from the database
-function getEvents() {
-    global $pdo; // Access the database connection object
-
-    try {
-        // Prepare and execute a SQL query to fetch events
-        $stmt = $pdo->prepare("SELECT * FROM events");
-        $stmt->execute();
-
-        // Fetch all rows from the result set as an associative array
-        $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $events; // Return the fetched events
-    } catch(PDOException $e) {
-        // Handle any database errors
-        die("Error: " . $e->getMessage());
-    }
-}
-
-// Call the getEvents function to fetch events
-$events = getEvents();
-
-// Now you can use the $events array to display events on your webpage
+include('header.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
-</head>
-<body>
-
-<h1>Events</h1>
-
-<?php
-// Check if there are any events to display
-if ($events) {
-    // Loop through each event and display its details
-    foreach ($events as $event) {
-        echo "<h2>" . $event['event_name'] . "</h2>";
-        echo "<p>Date: " . $event['event_date'] . "</p>";
-        echo "<p>Description: " . $event['event_description'] . "</p>";
-        // Add more details as needed
-    }
-} else {
-    echo "<p>No events found.</p>";
-}
-?>
-
-</body>
-</html>
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+				<div class="listview_1_of_3 images_1_of_3">
+					<h3>Upcoming Concerts</h3>
+					<?php 
+					$qry3=mysqli_query($con,"select * from tbl_news");				
+					while($n=mysqli_fetch_array($qry3))
+					{
+					?>
+				<div class="content-left">
+					<div class="listimg listimg_1_of_2">
+						 <img src="<?php echo $n['attachment'];?>">
+					</div>
+					<div class="text list_1_of_2">
+						  <div class="extra-wrap">
+						  	<span style="text-color:#000" class="data"><strong><?php echo $n['name'];?></strong><br>
+						  	<span style="text-color:#000" class="data"><strong>Band :<?php echo $n['cast'];?></strong><br>
+                                <div class="data">Event Date :<?php echo $n['news_date'];?></div>          
+                                <span class="text-top"><?php echo $n['description'];?></span>
+                          </div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<?php
+				}
+				?>
+		</div>				
+		<div class="listview_1_of_3 images_1_of_3">
+					<h3>Hits</h3>
+						<div class="middle-list">
+					<?php 
+					$qry4=mysqli_query($con,"select * from tbl_concert order by rand()");
+					while($nm=mysqli_fetch_array($qry4))
+					{
+					?>
+						<div class="listimg1">
+							 <a target="_blank" href="<?php echo $nm['video_url'];?>"><img src="<?php echo $nm['image'];?>" alt=""/></a>
+							 <a target="_blank" href="<?php echo $nm['video_url'];?>" class="link"><?php echo $nm['concert_name'];?></a>
+						</div>
+						<?php
+					}
+					?>
+					</div>		
+		</div>			
+		<?php include('concert_sidebar.php');?>
+	</div>
+</div>
+<?php include('footer.php');?>
+</div>
