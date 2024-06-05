@@ -7,11 +7,17 @@ This website features a way to buy concert tickets, information about many music
 **Project Features**
 
 Sign-up
+
 Log-in
+
 Forget Password
+
 My Profile Page
+
 Concert Page
+
 Ticket purchase Page
+
 Payment
 
 
