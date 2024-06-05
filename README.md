@@ -5,6 +5,7 @@ This website features a way to buy concert tickets, information about many music
 
 
 **Project Features**
+
 Sign-up
 Log-in
 Forget Password
@@ -15,14 +16,16 @@ Payment
 
 
 **ER/EER Diagram**
+
 ![image](https://github.com/AdnanSihab/LetsChill_CSE370_Project/assets/101943503/0d667fcc-8356-41ee-9ba4-6e418c0abbb8)
 
 
 **Schema Diagram**
+
 ![image](https://github.com/AdnanSihab/LetsChill_CSE370_Project/assets/101943503/d3b96b55-dac0-47c3-9e19-82dc9bcecc3e)
 
 
-**Frontend Development **
+**Frontend Development**
 Briefly discuss about Frontend Development and add Screenshots  by mentioning Individual Contributions
 Contribution of ID : 22141026, Name : Adnan Al Sayeed Sihab
 1.	Implemented full layout profile page for Users- (Profile page with email and phone showing, updating information, can delete his record.) 
@@ -101,7 +104,7 @@ Upload source code to GitHub or Google Drive and share a publicly accessible lin
 
 
 
-**Conclusion **
+**Conclusion**
 In summary, the concert ticket management initiative presents a comprehensive solution for smooth ticket purchasing, distribution, and event participation. By simplifying ticketing procedures, enhancing user satisfaction, and integrating robust security measures, the project aims to deliver a stress-free and enjoyable event experience for both organizers and attendees. Through its intuitive interface, real-time updates, and effective communication channels, the platform not only contributes to concert success but also fosters a strong sense of community among music enthusiasts. Additionally, our coursework of CSE370 both theory and lab helped us to gain real world experience and we had the opportunity to acquire new skills such as utilizing HTML, CSS, PHP, JAVASCRIPT and MySQL. As technology advances, this project serves as evidence of its positive impact in just a few weeks.
 
 
